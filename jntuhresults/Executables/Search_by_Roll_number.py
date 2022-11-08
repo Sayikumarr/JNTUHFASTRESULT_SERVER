@@ -70,9 +70,14 @@ class Results:
                     subject_name=""
                 subject_code = row.find_all("td")[subject_code_index].find("b").contents[0]
                 subject_grade = row.find_all("td")[grade_index].find("b").contents[0]
-                subject_internal = row.find_all("td")[internal_index].find("b").contents[0]
-                subject_external = row.find_all("td")[external_index].find("b").contents[0]
-                subject_total = row.find_all("td")[total_index].find("b").contents[0]
+                try:
+                    subject_internal = row.find_all("td")[internal_index].find("b").contents[0]
+                    subject_external = row.find_all("td")[external_index].find("b").contents[0]
+                    subject_total = row.find_all("td")[total_index].find("b").contents[0]
+                except:
+                    subject_internal="NA"
+                    subject_external="NA"
+                    subject_total="NA"
                 subject_credits = row.find_all("td")[subject_credits_index].find("b").contents[0]
                 '''try:
                     if(self.deta["Results"][code][subject_code]["subject_grade"]!="F" and self.deta["Results"][code][subject_code]["subject_grade"]!="Ab"):
